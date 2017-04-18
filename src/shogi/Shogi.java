@@ -9,11 +9,12 @@ import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
 public class Shogi extends JFrame{
-	final int cell_num = 9;
+	static final int cell_num = 9;
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 		Shogi s = new Shogi();
 		s.setVisible(true);
+
 	}
 
 	Shogi()
