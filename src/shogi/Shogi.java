@@ -10,42 +10,56 @@ import javax.swing.SpringLayout;
 
 public class Shogi extends JFrame{
 	static final int cell_num = 9;
+	SpringLayout layout;
+	JPanel b;
+	JButton board[][];
+	JPanel ehand;
+	JPanel phand;
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 		Shogi s = new Shogi();
 		s.setVisible(true);
+		Phase kyokumen = new Phase();
+		for(int i=0;i<cell_num;i++)
+		{
+			for(int j=0;j<cell_num;j++)
+			{
+				s.board[i][j].setText(kyokumen.board[i+1][j+1].toString());
+			}
+		}
 
 	}
 
 	Shogi()
 	{
-		SpringLayout layout = new SpringLayout();
+		layout = new SpringLayout();
 		setTitle("将棋");
 		setBounds(200,200,640,600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(layout);
 
 
-		JPanel b = new JPanel();
+		b = new JPanel();
 		b.setLayout(new GridLayout(cell_num,cell_num));
 		b.setPreferredSize(new Dimension(400, 400));
 		b.setBackground(Color.ORANGE);
 
-		JButton board[][] = new JButton[cell_num][cell_num];
+		board = new JButton[cell_num][cell_num];
 		for(int i=0;i<cell_num;i++)
 		{
 			for(int j=0;j<cell_num;j++)
 			{
-				board[i][j] = new JButton(i + "-" + j);
+				board[i][j] = new JButton();
 				//board[i][j].setPreferredSize(new Dimension(10,10));
 				b.add(board[i][j]);
 			}
 		}
 
-		JPanel ehand = new JPanel();
+		ehand = new JPanel();
 		ehand.setPreferredSize(new Dimension(100, 100));
 		ehand.setBackground(Color.RED);
-		JPanel phand = new JPanel();
+		
+		phand = new JPanel();
 		phand.setPreferredSize(new Dimension(100, 100));
 		phand.setBackground(Color.YELLOW);
 

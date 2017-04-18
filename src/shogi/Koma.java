@@ -45,7 +45,8 @@ public class Koma {
 	Koma(Komainf k,int suji,int dan)
 	{
 		koma = k;
-		pos.suji = suji;
+		pos = new Pos();
+		this.pos.suji = suji;
 		this.pos.dan = dan;
 	}
 

@@ -34,7 +34,7 @@ public class Phase {
 			for(int j=0;j<11;j++)
 			{
 				board[i][j] = new Koma(first_board[i][j],i,j);
-				if(i<4&&first_board[i][j] != Komainf.OUT_OF_BOARD && first_board[i][j] != Komainf.OUT_OF_BOARD)
+				if(i<4&&first_board[i][j] != Komainf.OUT_OF_BOARD && first_board[i][j] != Komainf.EMPTY)
 					board[i][j].setenemy(true);
 			}
 		}
