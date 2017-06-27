@@ -1,6 +1,8 @@
 package shogi;
 
-public class Koma {
+import javax.swing.JButton;
+
+public class Koma extends JButton{
 	private boolean ev = false;//成
 	private boolean enemy = false;//敵味方
 	private Pos pos;

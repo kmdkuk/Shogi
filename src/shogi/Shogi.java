@@ -3,10 +3,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
+
+import shogi.Koma.Komainf;
 
 public class Shogi extends JFrame{
 	static final int cellNum = 9;
@@ -18,7 +19,7 @@ public class Shogi extends JFrame{
 	static final int windowHeight = margin+boardSize+margin;
 	SpringLayout layout;
 	JPanel b;
-	JButton board[][];
+	Koma board[][];
 	JPanel ehand;
 	JPanel phand;
 	public static void main(String[] args) {
@@ -31,7 +32,9 @@ public class Shogi extends JFrame{
 		{
 			for(int j=0;j<cellNum;j++)
 			{
-				s.board[i][j].setText(kyokumen.board[i+1][j+1].toString());
+				s.board[i][j]=kyokumen.board[i+1][j+1];
+				System.out.println(s.board[i][j].toString());
+				s.board[i][j].setText(s.board[i][j].toString());
 			}
 		}
 
@@ -52,12 +55,12 @@ public class Shogi extends JFrame{
 		b.setPreferredSize(new Dimension(boardSize, boardSize));
 		b.setBackground(Color.ORANGE);
 
-		board = new JButton[cellNum][cellNum];
+		board = new Koma[cellNum][cellNum];
 		for(int i=0;i<cellNum;i++)
 		{
 			for(int j=0;j<cellNum;j++)
 			{
-				board[i][j] = new JButton();
+				board[i][j] = new Koma(Komainf.EMPTY,i,j);
 				board[i][j].setPreferredSize(new Dimension(cellSize,cellSize));
 				if(i==0&&j==0)
 				{
@@ -76,6 +79,7 @@ public class Shogi extends JFrame{
 					layout.putConstraint(SpringLayout.EAST, board[i][j], margin, SpringLayout.EAST, board[i-1][j]);
 					layout.putConstraint(SpringLayout.NORTH, board[i][j], margin, SpringLayout.NORTH, board[i][j-1]);
 				}
+				board[i][j].addActionListener(new Move());
 				b.add(board[i][j]);
 			}
 		}
