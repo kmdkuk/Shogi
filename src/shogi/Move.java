@@ -11,6 +11,6 @@ public class Move implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 		/* 処理したい内容をここに記述する */
 		koma = (Koma)e.getSource();
-		System.out.println("ボタン"+koma.toString()+"が押されました．");
+		System.out.println("ボタン"+koma.pos.toString()+"が押されました．");
 	}
 }

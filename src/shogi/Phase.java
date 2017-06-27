@@ -5,20 +5,7 @@ import java.util.ArrayList;
 import shogi.Koma.Komainf;
 
 public class Phase {
-	Komainf first_board[][] =
-		{
-				{Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD},
-				{Komainf.OUT_OF_BOARD,Komainf.KY,Komainf.KE,Komainf.GI,Komainf.KI,Komainf.OU,Komainf.KI,Komainf.GI,Komainf.KE,Komainf.KY,Komainf.OUT_OF_BOARD},
-				{Komainf.OUT_OF_BOARD,Komainf.EMPTY,Komainf.HI,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.KA,Komainf.EMPTY,Komainf.OUT_OF_BOARD},
-				{Komainf.OUT_OF_BOARD,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.OUT_OF_BOARD},
-				{Komainf.OUT_OF_BOARD,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.OUT_OF_BOARD},
-				{Komainf.OUT_OF_BOARD,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.OUT_OF_BOARD},
-				{Komainf.OUT_OF_BOARD,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.OUT_OF_BOARD},
-				{Komainf.OUT_OF_BOARD,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.OUT_OF_BOARD},
-				{Komainf.OUT_OF_BOARD,Komainf.EMPTY,Komainf.KA,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.HI,Komainf.EMPTY,Komainf.OUT_OF_BOARD},
-				{Komainf.OUT_OF_BOARD,Komainf.KY,Komainf.KE,Komainf.GI,Komainf.KI,Komainf.OU,Komainf.KI,Komainf.GI,Komainf.KE,Komainf.KY,Komainf.OUT_OF_BOARD},
-				{Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD},
-		};
+
 	//盤面　　型はKoma?
 	Koma board[][] = new Koma[11][11];
 	//持ち駒
@@ -33,8 +20,8 @@ public class Phase {
 		{
 			for(int j=0;j<11;j++)
 			{
-				board[i][j] = new Koma(first_board[i][j],i,j);
-				if(i<4&&first_board[i][j] != Komainf.OUT_OF_BOARD && first_board[i][j] != Komainf.EMPTY)
+				board[i][j] = new Koma(Shogi.firstBoard[i][j],i,j);
+				if(i<4&&Shogi.firstBoard[i][j] != Komainf.OUT_OF_BOARD && Shogi.firstBoard[i][j] != Komainf.EMPTY)
 					board[i][j].setenemy(true);
 			}
 		}

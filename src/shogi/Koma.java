@@ -5,7 +5,7 @@ import javax.swing.JButton;
 public class Koma extends JButton{
 	private boolean ev = false;//成
 	private boolean enemy = false;//敵味方
-	private Pos pos;
+	public Pos pos;
 	public enum Komainf{
 		OUT_OF_BOARD(-1),
 		EMPTY(0),
@@ -47,7 +47,7 @@ public class Koma extends JButton{
 	Koma(Komainf k,int suji,int dan)
 	{
 		koma = k;
-		pos = new Pos();
+		pos = new Pos(suji,dan);
 		this.pos.suji = suji;
 		this.pos.dan = dan;
 	}

@@ -17,6 +17,20 @@ public class Shogi extends JFrame{
 	static final int boardSize = cellNum*cellSize+margin*(cellNum+1);
 	static final int windowWidth = margin+handSize+margin+boardSize+margin+handSize+margin;
 	static final int windowHeight = margin+boardSize+margin;
+	static final Komainf firstBoard[][] =
+		{
+				{Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD},
+				{Komainf.OUT_OF_BOARD,Komainf.KY,Komainf.KE,Komainf.GI,Komainf.KI,Komainf.OU,Komainf.KI,Komainf.GI,Komainf.KE,Komainf.KY,Komainf.OUT_OF_BOARD},
+				{Komainf.OUT_OF_BOARD,Komainf.EMPTY,Komainf.HI,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.KA,Komainf.EMPTY,Komainf.OUT_OF_BOARD},
+				{Komainf.OUT_OF_BOARD,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.OUT_OF_BOARD},
+				{Komainf.OUT_OF_BOARD,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.OUT_OF_BOARD},
+				{Komainf.OUT_OF_BOARD,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.OUT_OF_BOARD},
+				{Komainf.OUT_OF_BOARD,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.OUT_OF_BOARD},
+				{Komainf.OUT_OF_BOARD,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.FU,Komainf.OUT_OF_BOARD},
+				{Komainf.OUT_OF_BOARD,Komainf.EMPTY,Komainf.KA,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.EMPTY,Komainf.HI,Komainf.EMPTY,Komainf.OUT_OF_BOARD},
+				{Komainf.OUT_OF_BOARD,Komainf.KY,Komainf.KE,Komainf.GI,Komainf.KI,Komainf.OU,Komainf.KI,Komainf.GI,Komainf.KE,Komainf.KY,Komainf.OUT_OF_BOARD},
+				{Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD,Komainf.OUT_OF_BOARD},
+		};
 	SpringLayout layout;
 	JPanel b;
 	Koma board[][];
@@ -32,7 +46,6 @@ public class Shogi extends JFrame{
 		{
 			for(int j=0;j<cellNum;j++)
 			{
-				s.board[i][j]=kyokumen.board[i+1][j+1];
 				System.out.println(s.board[i][j].toString());
 				s.board[i][j].setText(s.board[i][j].toString());
 			}
@@ -60,7 +73,8 @@ public class Shogi extends JFrame{
 		{
 			for(int j=0;j<cellNum;j++)
 			{
-				board[i][j] = new Koma(Komainf.EMPTY,i,j);
+				board[i][j] = new Koma(firstBoard[i+1][j+1],i,j);
+				if(i<3&&board[i][j].koma!=Komainf.EMPTY)board[i][j].setenemy(true);
 				board[i][j].setPreferredSize(new Dimension(cellSize,cellSize));
 				if(i==0&&j==0)
 				{
@@ -104,6 +118,10 @@ public class Shogi extends JFrame{
 		add(ehand);
 		add(b);
 		add(phand);
+
+	}
+	void setKomaLayout()
+	{
 
 	}
 }
