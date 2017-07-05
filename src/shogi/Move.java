@@ -12,5 +12,7 @@ public class Move implements ActionListener{
 		/* 処理したい内容をここに記述する */
 		koma = (Koma)e.getSource();
 		System.out.println("ボタン"+koma.pos.toString()+"が押されました．");
+		//i,jにあるコマの動ける場所(direct)をマーカーしたい
+		from = koma.pos;
 	}
 }
